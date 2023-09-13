@@ -1,0 +1,211 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.Js_Loop_ForModel
+@{
+    ViewData["Title"] = "JavaScript Loop For";
+}
+<div class="container">
+    <h1>JavaScript <span class="color_h1">For Loop</span></h1>
+    <hr>
+    <p class="intro">Loops can execute a block of code a number of times.</p>
+    <hr>
+
+    <h2>JavaScript Loops</h2>
+    <p>
+        Loops are handy, if you want to run the same code over and over again, each
+        time with a different value.
+    </p>
+    <p>Often this is the case when working with arrays:</p>
+
+    <div class="w3-example">
+        <h3>Instead of writing:</h3>
+        <div class="w3-code notranslate jsHigh">
+            text += cars[0] + &quot;&lt;br&gt;&quot;; <br>text += cars[1] + &quot;&lt;br&gt;&quot;; <br>
+            text += cars[2] + &quot;&lt;br&gt;&quot;; <br>text += cars[3] + &quot;&lt;br&gt;&quot;; <br>
+            text += cars[4] + &quot;&lt;br&gt;&quot;; <br>text += cars[5] + &quot;&lt;br&gt;&quot;;
+        </div>
+        <h3>You can write:</h3>
+        <div class="w3-code notranslate jsHigh">
+            for (let i = 0; i &lt; cars.length; i++) { <br>&nbsp;&nbsp;text += cars[i] + &quot;&lt;br&gt;&quot;;<br>
+            }
+        </div>
+    </div>
+    <hr>
+
+    <h2>Different Kinds of Loops</h2>
+    <p>JavaScript supports different kinds of loops:</p>
+    <ul>
+        <li><code class="w3-codespan">for</code> - loops through a block of code a number of times</li>
+        <li><code class="w3-codespan">for/in</code> - loops through the properties of an object</li>
+        <li>
+            <code class="w3-codespan">for/of</code> - loops through the values of an
+            iterable object
+        </li>
+        <li><code class="w3-codespan">while</code> - loops through a block of code while a specified condition is true</li>
+        <li><code class="w3-codespan">do/while</code> - also loops through a block of code while a specified condition is true</li>
+    </ul>
+    <hr>
+
+    <h2>The For Loop</h2>
+    <p>The <code class="w3-codespan">for</code> statement creates a loop with 3 optional expressions:</p>
+
+    <div class="w3-code w3-border notranslate jsHigh">
+        <div>
+
+            for (<i>expression 1</i>;<i> expression 2</i>;<i> expression 3</i>) {<br>
+            &nbsp; // <i>code block to be executed</i><br>
+            }<br>
+        </div>
+    </div>
+
+    <p><strong>Expression 1</strong> is executed (one time) before the execution of the code block.</p>
+    <p><strong>Expression 2</strong> defines the condition for executing the code block.</p>
+    <p><strong>Expression 3</strong> is executed (every time) after the code block has been executed.</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            for (let i = 0; i &lt; 5; i++) {<br>
+            &nbsp; text += &quot;The number is &quot; + i + &quot;&lt;br&gt;&quot;;<br>
+            }<br>
+        </div>
+    </div>
+
+    <p>From the example above, you can read:</p>
+    <p>Expression 1 sets a variable before the loop starts (let i = 0).</p>
+    <p>
+        Expression 2 defines the condition for the loop to run (i must be less than
+        5).
+    </p>
+    <p>
+        Expression 3 increases a value (i++) each time the code block in the loop has
+        been executed.
+    </p>
+    <hr>
+    <h2>Expression 1</h2>
+    <p>Normally you will use expression 1 to initialize the variable used in the loop (let i = 0).</p>
+    <p>
+        This is not always the case. JavaScript doesn't care. Expression 1 is
+        optional.
+    </p>
+    <p>You can initiate many values in expression 1 (separated by comma):</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            for (let i = 0, len = cars.length, text = &quot;&quot;; i &lt; len; i++) { <br>&nbsp; text += cars[i] + &quot;&lt;br&gt;&quot;;<br>
+            }
+        </div>
+    </div>
+    <p>
+        And you can omit expression 1 (like when your values are set
+        before the loop starts):
+    </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let i = 2;<br>
+            let len = cars.length;<br>
+            let text = &quot;&quot;;<br>for (; i &lt; len; i++) { <br>
+            &nbsp; text += cars[i] + &quot;&lt;br&gt;&quot;;<br>
+            }
+        </div>
+    </div>
+
+    <h2>Expression 2</h2>
+    <p>Often expression 2 is used to evaluate the condition of the initial variable.</p>
+    <p>
+        This is not always the case. JavaScript doesn't care. Expression 2 is
+        also optional.
+    </p>
+    <p>
+        If expression 2 returns true, the loop will start over again. If it returns false, the
+        loop will end.
+    </p>
+
+    <div class="w3-panel w3-note">
+        <p>
+            If you omit expression 2, you must provide a <strong>break</strong> inside the
+            loop. Otherwise the loop will never end. This will crash your browser.
+            Read about breaks in a later chapter of this tutorial.
+        </p>
+    </div>
+
+    <hr>
+    <h2>Expression 3</h2>
+    <p>Often expression 3 increments the value of the initial variable.</p>
+    <p>
+        This is not always the case. JavaScript doesn't care. Expression 3 is
+        optional.
+    </p>
+    <p>
+        Expression 3 can do anything like negative increment (i--), positive
+        increment (i = i + 15), or anything else.
+    </p>
+    <p>Expression 3 can also be omitted (like when you increment your values inside the loop): </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let i = 0;<br>
+            let len = cars.length;<br>
+            let text = &quot;&quot;;<br>
+            for (; i &lt; len; ) { <br>&nbsp; text += cars[i] + &quot;&lt;br&gt;&quot;;<br>
+            &nbsp;
+            i++;<br>}
+        </div>
+    </div>
+    <hr>
+    <h2>Loop Scope</h2>
+    <p>Using <code class="w3-codespan">var</code> in a loop:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            var i = 5;<br>
+            <br>
+            for (var i = 0; i &lt; 10; i++) {<br>
+            &nbsp;&nbsp;// some code<br>}<br>
+            <br>
+            // Here i is 10
+        </div>
+    </div>
+
+    <p>Using <code class="w3-codespan">let</code> in a loop:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let i = 5;<br>
+            <br>
+            for (let i = 0; i &lt; 10; i++) {<br>
+            &nbsp; // some code<br>}<br>
+            <br>
+            // Here i is 5
+        </div>
+    </div>
+    <p>
+        In the first example, using <code class="w3-codespan">var</code>, the variable declared in
+        the loop redeclares the variable outside the loop.
+    </p>
+    <p>
+        In the second example, using <code class="w3-codespan">let</code>, the variable declared in
+        the loop does not redeclare the variable outside the loop.
+    </p>
+    <p>
+        When <code class="w3-codespan">let</code> is used to declare the i variable in a loop, the i
+        variable will only be visible within the loop.
+    </p>
+
+    <hr>
+
+    <h2>For/Of and For/In Loops</h2>
+    <p>The <code class="w3-codespan">for/in</code> loop and the <code class="w3-codespan">for/of</code> loop are explained in the next chapter.</p>
+    <hr>
+    <h2>While Loops</h2>
+    <p>The <code class="w3-codespan">while</code> loop and the <code class="w3-codespan">do/while</code> are explained in the next chapters.</p>
+    <hr>
+</div>
+
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Switch">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-Loop-While">Next &#10095;</a>
+</div>

@@ -1,0 +1,259 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Emma JavaScript</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" asp-page="/Index">Emma Java Script School</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @User.Identity.Name
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <form method="post" asp-action="Logout" asp-controller="api">
+                                    <button type="submit" class="dropdown-item ">Logout</button>
+                                </form>
+                            </li>
+                            @*<li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>*@
+                        </ul>
+                    </div>
+                }
+                else
+                {
+                        <div class="d-flex justify-content-between">
+                        <a class="btn btn-link" asp-page="/Account/Registration">Register</a>
+                                <a class="btn btn-link" asp-page="/Account/Login">Login</a>
+                        </div>
+                }
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse overflow-auto">
+                <div class="position-sticky pt-3">
+                    <ul class="nav  flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Index")" aria-current="page" href="/Index">
+                                <span data-feather="home"></span>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Introduction")" asp-page="/Js-Page/Introduction">
+                                <span data-feather="file"></span>
+                                Introduction to Javascript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-WhereTo")" asp-page="/Js-Page/Js-WhereTo">
+                                <span data-feather="shopping-cart"></span>
+                                Js Where To
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Output")" href="/Js-Page/JS-Output">
+                                <span data-feather="users"></span>
+                                Js Ouput
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Statement")" asp-page="/Js-Page/JS-Statement">
+                                <span data-feather="users"></span>
+                                Js Statement
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Syntex")" asp-page="/Js-Page/Js-Syntex">
+                                <span data-feather="users"></span>
+                                Js Syntex
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Comments")" asp-page="/Js-Page/Js-Comments">
+                                <span data-feather="users"></span>
+                                Js Comments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Variables")" asp-page="/Js-Page/Js-Variables">
+                                <span data-feather="users"></span>
+                                Js Variables
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Let")" asp-page="/Js-Page/JS-Let">
+                                <span data-feather="users"></span>
+                                Js Let
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Const")" asp-page="/Js-Page/Js-Const">
+                                <span data-feather="users"></span>
+                                Js Const
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Operators")" asp-page="/Js-Page/JS-Operators">
+                                <span data-feather="users"></span>
+                                Js Operators
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Arithmetic")" asp-page="/Js-Page/JS-Arithmetic">
+                                <span data-feather="users"></span>
+                                Js Arithmetic
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Assignment")" asp-page="/Js-Page/JS-Assignment">
+                                <span data-feather="users"></span>
+                                Js Assignment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Data-Types")" asp-page="/Js-Page/JS-Data-Types">
+                                <span data-feather="users"></span>
+                                Js Data Types
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Functions")" asp-page="/Js-Page/JS-Functions">
+                                <span data-feather="users"></span>
+                                Js Functions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Objects")" asp-page="/Js-Page/JS-Objects">
+                                <span data-feather="users"></span>
+                                Js Objects
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-String-Method")" asp-page="/Js-Page/JS-String-Method">
+                                <span data-feather="users"></span>
+                                Js String Method
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Number-Methods")" asp-page="/Js-Page/JS-Number-Methods">
+                                <span data-feather="users"></span>
+                                Js Number Methods
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Arrays")" asp-page="/Js-Page/JS-Arrays">
+                                <span data-feather="users"></span>
+                                Js Arrays
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/JS-Array-Methods")" asp-page="/Js-Page/JS-Array-Methods">
+                                <span data-feather="users"></span>
+                                Js Array Methods
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Math")" asp-page="/Js-Page/Js-Math">
+                                <span data-feather="users"></span>
+                                Js Math
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Random")" asp-page="/Js-Page/Js-Random">
+                                <span data-feather="users"></span>
+                                Js Random
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Boolean")" asp-page="/Js-Page/Js-Boolean">
+                                <span data-feather="users"></span>
+                                Js Boolean
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Comparison")" asp-page="/Js-Page/Js-Comparison">
+                                <span data-feather="users"></span>
+                                Js Comparison
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-IfElse")" asp-page="/Js-Page/Js-IfElse">
+                                <span data-feather="users"></span>
+                                Js If Else
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Switch")" asp-page="/Js-Page/Js-Switch">
+                                <span data-feather="users"></span>
+                                Js Switch
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Loop-For")" asp-page="/Js-Page/Js-Loop-For">
+                                <span data-feather="users"></span>
+                                Js Loop For
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Loop-While")" asp-page="/Js-Page/Js-Loop-While">
+                                <span data-feather="users"></span>
+                                Js Loop While
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @Html.ActiveClass("/Js-Page/Js-Best-Practice")" asp-page="/Js-Page/Js-Best-Practice">
+                                <span data-feather="users"></span>
+                                Js Best Practice
+                            </a>
+                        </li>
+                    </ul>
+                    @*<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Saved reports</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>*@
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @RenderBody()
+            </main>
+
+            <footer class="border-top footer text-muted mt-5 bg-dark pt-3 pb-3">
+                <div class="container text-center">
+                    &copy; 2023 - EmmanuelJavaScriptWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

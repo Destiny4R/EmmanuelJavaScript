@@ -1,0 +1,348 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.JS_ObjectsModel
+@{
+    ViewData["Title"] = "JavaScript Objects";
+}
+<div class="container">
+    <h1>JavaScript <span class="color_h1">Objects</span></h1>
+
+    <hr>
+    <h2>Real Life Objects, Properties, and Methods</h2>
+
+    <p>In real life, a car is an <strong>object</strong>. </p>
+    <p>A car has <strong>properties</strong> like weight and color, and <strong>methods</strong> like start and stop:</p>
+
+    <div class="w3-responsive">
+        <table class="ws-table-all" style="margin:6px 0">
+            <tr>
+                <th style="width:370px">
+                    Object
+                </th>
+                <th>
+                    Properties
+                </th>
+                <th>
+                    Methods
+                </th>
+            </tr>
+            <tr style="background-color:white;color:#000;">
+                <td>
+                    <img src="objectExplained.gif" style="width:368px;height:230px;margin-left:-68px;margin-top:-40px">
+                </td>
+                <td>
+                    <br>car.name = Fiat<br><br>
+                    car.model = 500<br><br>
+                    car.weight = 850kg<br><br>
+                    car.color = white
+                </td>
+                <td>
+                    <br>car.start()<br><br>
+                    car.drive()<br><br>
+                    car.brake()
+                    <br><br>car.stop()
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <p>All cars have the same <strong>properties</strong>, but the property <strong>values</strong> differ from car to car.</p>
+    <p>
+        All cars have the same <strong>methods</strong>, but the methods are performed
+        <strong>at different times</strong>.
+    </p>
+
+    <hr>
+
+    <h2>JavaScript Objects</h2>
+    <p>
+        You have already learned that JavaScript variables are
+        containers for data values.
+    </p>
+    <p>
+        This code assigns a <strong>simple value</strong> (Fiat) to
+        a <strong>variable</strong> named car:
+    </p>
+
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            let car = &quot;Fiat&quot;;
+        </div>
+    </div>
+
+    <p>
+        Objects are variables too. But objects can contain many
+        values.
+    </p>
+    <p>
+        This code assigns <strong>many values</strong> (Fiat, 500, white) to a
+        <strong>variable</strong>
+        named car:
+    </p>
+
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            const car = {type:&quot;Fiat&quot;, model:&quot;500&quot;, color:&quot;white&quot;};
+        </div>
+    </div>
+    <p>
+        The values are written as <strong>name:value</strong> pairs (name and value separated by a
+        colon).
+    </p>
+
+    <div class="w3-note">
+        <p>It is a common practice to declare objects with the <span class="w3-codespan">const</span> keyword.</p>
+        <p>Learn more about using <span class="w3-codespan">const</span> with objects in the chapter: <a href="js_const.asp">JS Const</a>.</p>
+    </div>
+
+    <hr>
+    <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+        <!-- MidContent -->
+        <!-- <p class="adtext">Advertisement</p> -->
+
+        <div id="adngin-mid_content-0"></div>
+
+    </div>
+    <hr>
+    <h2>Object Definition</h2>
+    <p>You define (and create) a JavaScript object with an object literal:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const person = {firstName:&quot;John&quot;, lastName:&quot;Doe&quot;, age:50, eyeColor:&quot;blue&quot;};<br>
+        </div>
+    </div>
+
+    <p>Spaces and line breaks are not important. An object definition can span multiple lines: </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const person = {<br>
+            &nbsp; firstName: &quot;John&quot;,<br>
+            &nbsp; lastName: &quot;Doe&quot;,<br>
+            &nbsp;&nbsp;age: 50,<br>
+            &nbsp;&nbsp;eyeColor: &quot;blue&quot;<br>
+            };
+        </div>
+    </div>
+    <hr>
+    <h2>Object Properties</h2>
+
+    <p>The <strong>name:values</strong> pairs in JavaScript objects are called <strong>properties</strong>:</p>
+
+    <table class="ws-table-all">
+        <tr>
+            <th style="width:20%">Property</th>
+            <th>Property Value</th>
+        </tr>
+        <tr>
+            <td>firstName</td>
+            <td>John</td>
+        </tr>
+        <tr>
+            <td>lastName</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>eyeColor</td>
+            <td>blue</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Accessing Object Properties</h2>
+    <p>You can access object properties in two ways: </p>
+
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            <i>objectName.propertyName</i>
+        </div>
+    </div>
+
+    <p>or</p>
+
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            <i>objectName[&quot;propertyName&quot;]</i>
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example1</h3>
+        <div class="w3-code notranslate jsHigh">
+            person.lastName;
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example2</h3>
+        <div class="w3-code notranslate jsHigh">
+            person[&quot;lastName&quot;];
+        </div>
+    </div>
+    <div class="w3-panel w3-note">
+        <p>JavaScript objects are containers for <strong>named values </strong>called properties.</p>
+    </div>
+
+
+    <hr>
+
+    <h2>Object Methods</h2>
+    <p>Objects can also have <strong>methods</strong>.</p>
+    <p>Methods are <strong>actions</strong> that can be performed on objects.</p>
+    <p>
+        Methods are stored in properties as <strong>
+            function
+            definitions
+        </strong>.
+    </p>
+
+    <table class="ws-table-all">
+        <tr>
+            <th style="width:20%">Property</th>
+            <th>Property Value</th>
+        </tr>
+        <tr>
+            <td>firstName</td>
+            <td>John</td>
+        </tr>
+        <tr>
+            <td>lastName</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>eyeColor</td>
+            <td>blue</td>
+        </tr>
+        <tr>
+            <td>fullName</td>
+            <td>function() {return this.firstName + &quot; &quot; + this.lastName;}</td>
+        </tr>
+    </table>
+    <div class="w3-panel w3-note">
+        <p>A method is a function stored as a property.</p>
+    </div>
+    <hr>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const person = {<br>
+            &nbsp; firstName: "John",<br>
+            &nbsp; lastName : "Doe",<br>
+            &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;5566,<br>
+            &nbsp; fullName : function() {<br>
+            &nbsp;&nbsp;&nbsp; return this.firstName + " " + this.lastName;<br>&nbsp;&nbsp;}<br>
+            };
+        </div>
+    </div>
+
+    <p>In the example above, <code class="w3-codespan">this</code> refers to the <strong>person object</strong>.</p>
+    <p>I.E. <strong>this.firstName</strong> means the <strong>firstName</strong> property of <strong>this</strong>.</p>
+    <p>I.E. <strong>this.firstName</strong> means the <strong>firstName</strong> property of <strong>person</strong>.</p>
+
+    <hr>
+    <h2>What is <b>this</b>?</h2>
+    <p>In JavaScript, the <code class="w3-codespan">this</code> keyword refers to an <b>object</b>.</p>
+    <p><b>Which</b> object depends on how <code class="w3-codespan">this</code> is being invoked (used or called).</p>
+
+    <p>The <code class="w3-codespan">this</code> keyword refers to different objects depending on how it is used:</p>
+
+    <table class="ws-table-all">
+        <tr><td>In an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</td></tr>
+        <tr><td>Alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+        <tr><td>In a function, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+        <tr><td>In a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</td></tr>
+        <tr><td>In an event, <code class="w3-codespan">this</code> refers to the <b>element</b> that received the event.</td></tr>
+        <tr>
+            <td>
+                Methods like <code class="w3-codespan">call()</code>, <code class="w3-codespan">apply()</code>,
+                and <code class="w3-codespan">bind()</code> can refer <code class="w3-codespan">this</code> to <b>any object</b>.
+            </td>
+        </tr>
+    </table>
+
+    <div class="w3-note">
+        <h2>Note</h2>
+        <code class="w3-codespan">this</code> is not a variable. It is a keyword. You cannot change the value of <code class="w3-codespan">this</code>.
+
+
+    </div>
+
+    <hr>
+
+    <h2>The <strong>this</strong> Keyword</h2>
+    <p>In a function definition, <code class="w3-codespan">this</code> refers to the "owner" of the function.</p>
+    <p>
+        In the example above, <code class="w3-codespan">this</code> is the <strong>person object</strong> that "owns" the
+        <code class="w3-codespan">fullName</code> function.
+    </p>
+    <p>In other words, <code class="w3-codespan">this.firstName</code> means the <code class="w3-codespan">firstName</code> property of <strong>this object</strong>.</p>
+    <p>Learn more about <code class="w3-codespan">this</code> in <a href="js_this.asp">The JavaScript this Tutorial</a>.</p>
+    <hr>
+
+    <h2>Accessing Object Methods</h2>
+
+    <p>You access an object method with the following syntax:</p>
+
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            <i>objectName.methodName()</i>
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate">
+            name = person.fullName();
+        </div>
+    </div>
+
+    <p>
+        If you access a method <strong>without</strong> the () parentheses, it
+        will return the <strong>function definition</strong>:
+    </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate">
+            name = person.fullName;
+        </div>
+    </div>
+    <hr>
+
+    <h2>Do Not Declare Strings, Numbers, and Booleans as Objects!</h2>
+    <p>
+        When a JavaScript variable is declared with the keyword &quot;<code class="w3-codespan">new</code>&quot;, the variable is
+        created as
+        an object:
+    </p>
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            x = new String();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Declares x as a String object<br>
+            y =&nbsp;new Number();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Declares y as a Number object<br>
+            z =&nbsp;new Boolean();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Declares z as a Boolean object
+        </div>
+    </div>
+    <p>
+        Avoid <code class="w3-codespan">String</code>, <code class="w3-codespan">Number</code>, and <code class="w3-codespan">Boolean</code> objects. They complicate your code and slow down
+        execution speed.
+    </p>
+
+    <div class="w3-panel w3-note">
+        <p>You will learn more about objects later in this tutorial.</p>
+    </div>
+
+    <hr>
+</div>
+
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Functions">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-String-Method">Next &#10095;</a>
+</div>

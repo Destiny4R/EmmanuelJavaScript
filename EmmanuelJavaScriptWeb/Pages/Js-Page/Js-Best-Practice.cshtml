@@ -1,0 +1,333 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.Js_Best_PracticeModel
+@{
+    ViewData["Title"] = "JavaScript Best Practices";
+}
+<div class="container">
+    <h1>JavaScript <span class="color_h1">Best Practices</span></h1>
+    <hr>
+    <p class="intro">Avoid global variables, avoid <code class="w3-codespan">new</code>, avoid <code class="w3-codespan">==</code>, avoid <code class="w3-codespan">eval()</code></p>
+    <hr>
+
+    <h2>Avoid Global Variables</h2>
+    <p>Minimize the use of global variables.</p>
+    <p>This includes all data types, objects, and functions.</p>
+    <p>Global variables and functions can be overwritten by other scripts.</p>
+    <p>
+        Use local variables instead, and learn how to use
+        <a href="js_function_closures.asp">closures</a>.
+    </p>
+    <hr>
+
+    <h2>Always Declare Local Variables</h2>
+    <p>All variables used in a function should be declared as <strong>local</strong> variables. </p>
+
+    <p>
+        Local variables <strong>must</strong> be declared with the <code class="w3-codespan">var</code>,
+        the <code class="w3-codespan">let</code>, or the <code class="w3-codespan">const</code> keyword,
+        otherwise they will become global variables.
+    </p>
+
+    <div class="w3-panel w3-note">
+        <p>Strict mode does not allow undeclared variables.</p>
+    </div>
+
+    <hr>
+    <h2>Declarations on Top</h2>
+    <p>
+        It is a good coding practice to put all declarations at the top of each script
+        or function.
+    </p>
+    <p>This will:</p>
+    <ul>
+        <li>Give cleaner code</li>
+        <li>Provide a single place to look for local variables</li>
+        <li>Make it easier to avoid unwanted (implied) global variables</li>
+        <li>Reduce the possibility of unwanted re-declarations</li>
+    </ul>
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            // Declare at the beginning<br>
+            let firstName, lastName, price, discount, fullPrice;<br>
+            <br>// Use later<br>firstName = &quot;John&quot;;<br>lastName = &quot;Doe&quot;;<br><br>price = 19.90;<br>
+            discount = 0.10;<br><br>fullPrice = price - discount;
+        </div>
+    </div>
+    <p>This also goes for loop variables:</p>
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            for (let i = 0; i &lt; 5; i++)
+            {
+        </div>
+    </div>
+
+    <hr>
+    <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+        <!-- MidContent -->
+        <!-- <p class="adtext">Advertisement</p> -->
+
+        <div id="adngin-mid_content-0"></div>
+
+    </div>
+    <hr>
+    <h2>Initialize Variables</h2>
+    <p>It is a good coding practice to initialize variables when you declare them.</p>
+    <p>This will:</p>
+    <ul>
+        <li>Give cleaner code</li>
+        <li>Provide a single place to initialize variables</li>
+        <li>Avoid undefined values</li>
+    </ul>
+    <div class="w3-example">
+        <div class="w3-code notranslate jsHigh">
+            // Declare and initiate at the beginning<br>
+            let firstName = &quot;&quot;;<br>
+            let lastName = &quot;&quot;;<br>
+            let price = 0;<br>
+            let discount = 0;<br>
+            let fullPrice = 0,<br>
+            const myArray = [];<br>
+            const myObject = {};
+        </div>
+    </div>
+
+    <div class="w3-panel w3-note">
+        <p>Initializing variables provides an idea of the intended use (and intended data type).</p>
+    </div>
+    <hr>
+    <h2>Declare Objects with <b>const</b></h2>
+    <p>Declaring objects with const will prevent any accidental change of type:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let car = {type:"Fiat", model:"500", color:"white"};<br>
+            car = "Fiat";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Changes object to string<br>
+        </div>
+        <br>
+        <div class="w3-code notranslate jsHigh">
+            const car = {type:"Fiat", model:"500", color:"white"};<br>
+            car = "Fiat";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not possible<br>
+        </div>
+    </div>
+
+    <hr>
+    <h2>Declare Arrays with <b>const</b></h2>
+    <p>Declaring arrays with const will prevent any accidential change of type:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let cars = ["Saab", "Volvo", "BMW"];<br>
+            cars = 3;&nbsp;&nbsp;&nbsp;&nbsp;// Changes array to number<br>
+        </div>
+        <br>
+        <div class="w3-code notranslate jsHigh">
+            const cars = ["Saab", "Volvo", "BMW"];<br>
+            cars = 3;&nbsp;&nbsp;&nbsp;&nbsp;// Not possible<br>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Don't Use new Object()</h2>
+    <ul>
+        <li>Use <code class="w3-codespan">&quot;&quot;</code> instead of <code class="w3-codespan">new String()</code></li>
+        <li>Use <code class="w3-codespan">0</code> instead of <code class="w3-codespan">new Number()</code></li>
+        <li>Use <code class="w3-codespan">false</code> instead of <code class="w3-codespan">new Boolean()</code></li>
+        <li>Use <code class="w3-codespan">{}</code> instead of <code class="w3-codespan">new Object()</code></li>
+        <li>Use <code class="w3-codespan">[]</code> instead of <code class="w3-codespan">new Array()</code></li>
+        <li>Use <code class="w3-codespan">/()/</code> instead of <code class="w3-codespan">new RegExp()</code></li>
+        <li>Use <code class="w3-codespan">function (){}</code> instead of <code class="w3-codespan">new Function()</code></li>
+    </ul>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x1 = &quot;&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new primitive string<br>
+            let x2 = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new primitive number<br>
+            let x3 = false;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new primitive boolean<br>
+            const x4 = {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new object<br>
+            const x5 = [];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new array object<br>
+            const x6 = /()/;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // new regexp object<br>
+            const x7 = function(){};&nbsp;// new function object
+        </div>
+    </div>
+    <hr>
+
+    <h2>Beware of Automatic Type Conversions</h2>
+    <p>JavaScript is loosely typed.</p>
+    <p>A variable can contain all data types.</p>
+    <p>A variable can change its data type:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = &quot;Hello&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// typeof x is a string<br>
+            x = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// changes typeof x to a number
+        </div>
+    </div>
+    <p>
+        Beware that numbers can accidentally be converted to strings or <code class="w3-codespan">NaN</code> (Not a
+        Number).
+    </p>
+
+    <p>When doing mathematical operations, JavaScript can convert numbers to strings:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 5 + 7;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // x.valueOf() is 12,&nbsp; typeof x is a number<br>
+            let x = 5 + &quot;7&quot;;&nbsp;&nbsp;&nbsp;&nbsp; // x.valueOf() is 57,&nbsp; typeof x is a string<br>
+            let x = &quot;5&quot; + 7;&nbsp;&nbsp;&nbsp;&nbsp; // x.valueOf() is 57,&nbsp; typeof x is a string<br>
+            let x = 5 - 7; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // x.valueOf() is -2,&nbsp; typeof x is a number<br>
+            let x = 5 - &quot;7&quot;; &nbsp;&nbsp;&nbsp; // x.valueOf() is -2,&nbsp; typeof x is a number<br>
+            let x = &quot;5&quot; - 7; &nbsp;&nbsp;&nbsp; // x.valueOf() is -2,&nbsp; typeof x is a number<br>
+            let x = 5 - &quot;x&quot;;&nbsp; &nbsp;&nbsp; // x.valueOf() is NaN, typeof x is a number
+        </div>
+    </div>
+
+    <p>
+        Subtracting a string from a string, does not
+        generate an error but returns <code class="w3-codespan">NaN</code> (Not a Number):
+    </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            &quot;Hello&quot; - &quot;Dolly&quot; &nbsp;&nbsp; // returns NaN
+        </div>
+    </div>
+    <hr>
+
+    <h2>Use === Comparison</h2>
+    <p>
+        The <code class="w3-codespan">==</code> comparison operator always converts (to matching types) before
+        comparison.
+    </p>
+    <p>The <code class="w3-codespan">===</code> operator forces comparison of values and type: </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            0 == &quot;&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true<br>
+            1 == &quot;1&quot;; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true<br>
+            1 == true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true<br><br>
+            0 === &quot;&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // false<br>
+            1 === &quot;1&quot;; &nbsp;&nbsp; &nbsp; // false<br>
+            1 === true;&nbsp;&nbsp;&nbsp;&nbsp;
+            // false
+        </div>
+    </div>
+    <hr>
+
+    <h2>Use Parameter Defaults</h2>
+    <p>
+        If a function is called with a missing argument, the value of the missing
+        argument is set to
+        <code class="w3-codespan">undefined</code>.
+    </p>
+    <p>
+        Undefined values can break your code. It is a good habit to assign default
+        values to arguments.
+    </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            function myFunction(x, y) {<br>
+            &nbsp; if (y === undefined) {<br>
+            &nbsp;&nbsp;&nbsp; y = 0;<br>
+            &nbsp;  }<br>
+            }
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <p>
+            <a href="js_es6.asp">ECMAScript 2015</a> allows default parameters in the function definition:
+            <div class="w3-code notranslate jsHigh">
+                function (a=1, b=1) {&nbsp;/*function code*/  }
+            </div>
+    </div>
+
+    <p>Read more about function parameters and arguments at <a href="js_function_parameters.asp">Function Parameters</a></p>
+    <hr>
+
+    <h2>End Your Switches with Defaults</h2>
+    <p>
+        Always end your <code class="w3-codespan">switch</code> statements with a <code class="w3-codespan">default</code>. Even if you think there is
+        no need for it.
+    </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            switch (new Date().getDay()) {<br>
+            &nbsp;
+            case 0:<br>
+            &nbsp; &nbsp; day = &quot;Sunday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;&nbsp;case 1:<br>
+            &nbsp; &nbsp; day = &quot;Monday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;&nbsp;case 2:<br>
+            &nbsp; &nbsp; day = &quot;Tuesday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;
+            case 3:<br>
+            &nbsp; &nbsp; day = &quot;Wednesday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;
+            case 4:<br>
+            &nbsp;&nbsp;&nbsp; day = &quot;Thursday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;&nbsp;case 5:<br>
+            &nbsp; &nbsp; day = &quot;Friday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;&nbsp;case 6:<br>
+            &nbsp; &nbsp; day = &quot;Saturday&quot;;<br>
+            &nbsp;&nbsp;&nbsp; break;<br>
+            &nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp; day =
+            &quot;Unknown&quot;;<br>}
+        </div>
+    </div>
+    <hr>
+    <h2>Avoid Number, String, and Boolean as Objects</h2>
+    <p>
+        Always treat numbers, strings, or booleans as primitive values. Not as
+        objects.
+    </p>
+    <p>
+        Declaring these types as objects, slows down execution speed,
+        and produces nasty side effects:
+    </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = &quot;John&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            let y = new String(&quot;John&quot;);<br>
+            (x === y) // is false because x is a string and y is an object.
+        </div>
+    </div>
+    <p>Or even worse:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = new String(&quot;John&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            let y = new String(&quot;John&quot;);<br>
+            (x == y) // is false because you cannot compare objects.
+        </div>
+    </div>
+
+
+    <hr>
+    <h2>Avoid Using eval()</h2>
+    <p>
+        The <code class="w3-codespan">eval()</code> function is used to run text as code. In almost all cases, it
+        should not be necessary to use it.
+    </p>
+    <p>
+        Because it allows arbitrary code to be run, it also represents a security
+        problem.
+    </p>
+    <br>
+</div>
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Loop-While">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-">Next &#10095;</a>
+</div>

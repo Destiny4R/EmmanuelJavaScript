@@ -1,0 +1,191 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.Js_WhereToModel
+@{
+    ViewData["Title"]="Javascript Where To";
+}
+
+<div class="container">
+    <h2>JavaScript Where To</h2>
+    <h2>The &lt;script&gt; Tag</h2>
+    <p>In HTML, JavaScript code is inserted between <code class="w3-codespan">&lt;script&gt;</code> and <code class="w3-codespan">&lt;/script&gt;</code> tags.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script&gt;<br>
+            document.getElementById(&quot;demo&quot;).innerHTML = &quot;My First JavaScript&quot;;<br>
+            &lt;/script&gt;
+        </div>
+
+    </div>
+
+    <div class="w3-panel w3-note">
+        <p>
+            Old JavaScript examples may use a type attribute: &lt;script type=&quot;text/javascript&quot;&gt;.<br>
+            The type attribute is not required. JavaScript is the default scripting language in HTML.
+        </p>
+    </div>
+
+    <hr>
+    <h2>JavaScript Functions and Events</h2>
+    <p>A JavaScript <code class="w3-codespan">function</code> is a block of JavaScript code, that can be executed when &quot;called&quot; for.</p>
+    <p>For example, a function can be called when an <b>event</b> occurs, like when the user clicks a button.</p>
+    <div class="w3-panel w3-note">
+        <p>You will learn much more about functions and events in later chapters.</p>
+    </div>
+    <hr>
+
+    <h2>JavaScript in &lt;head&gt; or &lt;body&gt;</h2>
+    <p>You can place any number of scripts in an HTML document.</p>
+    <p>Scripts can be placed in the <code class="w3-codespan">&lt;body&gt;</code>, or in the <code class="w3-codespan">&lt;head&gt;</code> section of an HTML page, or in both.</p>
+
+    <hr>
+    <h2>JavaScript in &lt;head&gt;</h2>
+    <p>
+        In this example, a JavaScript <code class="w3-codespan">function</code> is placed in the <code class="w3-codespan">&lt;head&gt;</code> section
+        of an HTML page.
+    </p>
+    <p>The function is invoked (called) when a button is clicked:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &lt;script&gt;<br>
+            function myFunction() {<br>
+            &nbsp;&nbsp;document.getElementById(&quot;demo&quot;).innerHTML = &quot;Paragraph changed.&quot;;<br>
+            }<br>
+            &lt;/script&gt;<br>
+            &lt;/head&gt;<br>&lt;body&gt;
+            <p>
+                &lt;h2&gt;Demo JavaScript in Head&lt;/h2&gt;<br>
+                <br>
+                &lt;p id=&quot;demo&quot;&gt;A Paragraph&lt;/p&gt;<br>&lt;button type=&quot;button&quot; onclick=&quot;myFunction()&quot;&gt;Try
+                it&lt;/button&gt;
+            </p>
+            <p>
+                &lt;/body&gt;<br>
+                &lt;/html&gt;
+        </div>
+    </div>
+
+    <h2>JavaScript in &lt;body&gt;</h2>
+    <p>In this example, a JavaScript <code class="w3-codespan">function</code> is placed in the <code class="w3-codespan">&lt;body&gt;</code> section of an HTML page.</p>
+    <p>The function is invoked (called) when a button is clicked:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &lt;body&gt;
+            <br><br>&lt;h2&gt;Demo JavaScript in Body&lt;/h2&gt;<br>
+            <br>
+            &lt;p id=&quot;demo&quot;&gt;A Paragraph&lt;/p&gt;<br>
+            <br>
+            &lt;button type=&quot;button&quot; onclick=&quot;myFunction()&quot;&gt;Try
+            it&lt;/button&gt;<br>
+            <br>&lt;script&gt;<br>
+            function myFunction() {<br>
+            &nbsp; document.getElementById(&quot;demo&quot;).innerHTML = &quot;Paragraph changed.&quot;;<br>
+            }<br>
+            &lt;/script&gt;<br>
+            <br>&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+    </div>
+
+    <div class="w3-panel w3-note">
+        <p>
+            Placing scripts at the bottom of the &lt;body&gt; element improves the display
+            speed, because script interpretation slows down the display.
+        </p>
+    </div>
+
+    <hr>
+    <h2>External JavaScript</h2>
+    <p>Scripts can also be placed in external files:</p>
+    <div class="w3-example">
+        <h3>External file: myScript.js</h3>
+        <div class="w3-code notranslate jsHigh">
+            function myFunction() {<br>
+            &nbsp; document.getElementById(&quot;demo&quot;).innerHTML = &quot;Paragraph changed.&quot;;<br>
+            }
+        </div>
+    </div>
+
+    <p>External scripts are practical when the same code is used in many different web pages. </p>
+    <p>JavaScript files have the file extension <strong>.js</strong>.</p>
+    <p>
+        To use an external script, put the name of the script file in the <code class="w3-codespan">src</code> (source) attribute of
+        a <code class="w3-codespan">&lt;script&gt;</code> tag:
+    </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script src=&quot;myScript.js&quot;&gt;&lt;/script&gt;
+        </div>
+    </div>
+
+    <p>You can place an external script reference in <code class="w3-codespan">&lt;head&gt;</code> or <code class="w3-codespan">&lt;body&gt;</code> as you like.</p>
+    <p>The script will behave as if it was located exactly where the <code class="w3-codespan">&lt;script&gt;</code> tag is located.</p>
+
+    <div class="w3-panel w3-note">
+        <p>External scripts cannot contain <code class="w3-codespan">&lt;script&gt;</code> tags.</p>
+    </div>
+
+    <hr>
+    <h2>External JavaScript Advantages</h2>
+    <p>Placing scripts in external files has some advantages:</p>
+    <ul>
+        <li>It separates HTML and code</li>
+        <li>It makes HTML and JavaScript easier to read and maintain</li>
+        <li>Cached JavaScript files can speed up page loads</li>
+    </ul>
+    <p>To add several script files to one page&nbsp; - use several script tags:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script src=&quot;myScript1.js&quot;&gt;&lt;/script&gt;<br>
+            &lt;script src=&quot;myScript2.js&quot;&gt;&lt;/script&gt;
+        </div>
+    </div>
+
+
+    <hr>
+    <h2>External References</h2>
+    <p>An external script can be referenced in 3 different ways:</p>
+    <ul>
+        <li>With a full URL (a full web address)</li>
+        <li>With a file path (like /js/)</li>
+        <li>Without any path</li>
+    </ul>
+
+    <p>This example uses a <b>full URL</b> to link to myScript.js: </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script src=&quot;https://www.w3schools.com/js/myScript.js&quot;&gt;&lt;/script&gt;
+        </div>
+    </div>
+
+    <p>This example uses a <b>file path</b> to link to myScript.js:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script src=&quot;/js/myScript.js&quot;&gt;&lt;/script&gt;
+        </div>
+    </div>
+
+    <p>This example uses no path to link to myScript.js:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            &lt;script src=&quot;myScript.js&quot;&gt;&lt;/script&gt;
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="/Js-Page/Introduction">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="JS-Output">Next &#10095;</a>
+</div>

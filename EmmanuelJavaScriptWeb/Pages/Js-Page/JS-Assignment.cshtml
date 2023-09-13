@@ -1,0 +1,346 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.JS_AssignmentModel
+@{
+    ViewData["Title"] = "JavaScript Assignment Operators";
+}
+
+<div class="container">
+    <h1>JavaScript <span class="color_h1">Assignment</span></h1>
+    <hr>
+
+    <h2>JavaScript Assignment Operators</h2>
+    <p>Assignment operators assign values to JavaScript variables.</p>
+
+    <table class="ws-table-all notranslate">
+        <tr>
+            <th style="width:30%">Operator</th>
+            <th>Example</th>
+            <th>Same As</th>
+        </tr>
+        <tr>
+            <td>=</td>
+            <td>x = y</td>
+            <td>x = y</td>
+        </tr>
+        <tr>
+            <td>+=</td>
+            <td>x += y</td>
+            <td>x = x + y</td>
+        </tr>
+        <tr>
+            <td>-=</td>
+            <td>x -= y</td>
+            <td>x = x - y</td>
+        </tr>
+        <tr>
+            <td>*=</td>
+            <td>x *= y</td>
+            <td>x = x * y</td>
+        </tr>
+        <tr>
+            <td>/=</td>
+            <td>x /= y</td>
+            <td>x = x / y</td>
+        </tr>
+        <tr>
+            <td>%=</td>
+            <td>x %= y</td>
+            <td>x = x % y</td>
+        </tr>
+        <tr>
+            <td>**=</td>
+            <td>x **= y</td>
+            <td>x = x ** y</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>Shift Assignment Operators</h2>
+    <table class="ws-table-all notranslate">
+        <tr>
+            <th style="width:30%">Operator</th>
+            <th>Example</th>
+            <th>Same As</th>
+        <tr>
+            <td>&lt;&lt;=</td>
+            <td>x &lt;&lt;= y</td>
+            <td>x = x &lt;&lt; y</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;=</td>
+            <td>x &gt;&gt;= y</td>
+            <td>x = x &gt;&gt; y</td>
+        </tr>
+        <tr>
+            <td>&gt;&gt;&gt;=</td>
+            <td>x &gt;&gt;&gt;= y</td>
+            <td>x = x &gt;&gt;&gt; y</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Bitwise Assignment Operators</h2>
+    <table class="ws-table-all notranslate">
+        <tr>
+            <th style="width:30%">Operator</th>
+            <th>Example</th>
+            <th>Same As</th>
+        <tr>
+            <td>&amp;=</td>
+            <td>x &amp;= y</td>
+            <td>x = x &amp; y</td>
+        </tr>
+        <tr>
+            <td>^=</td>
+            <td>x ^= y</td>
+            <td>x = x ^ y</td>
+        </tr>
+        <tr>
+            <td>|=</td>
+            <td>x |= y</td>
+            <td>x = x | y</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>Logical Assignment Operators</h2>
+    <table class="ws-table-all notranslate">
+        <tr>
+            <th style="width:30%">Operator</th>
+            <th>Example</th>
+            <th>Same As</th>
+        <tr>
+            <td>&amp;&amp;=</td>
+            <td>x &amp;&amp;= y</td>
+            <td>x = x &amp;&amp; (x = y)</td>
+        </tr>
+        <tr>
+            <td>||=</td>
+            <td>x ||= y</td>
+            <td>x = x || (x = y)</td>
+        </tr>
+        <tr>
+            <td>??=</td>
+            <td>x ??= y</td>
+            <td>x = x ?? (x = y)</td>
+        </tr>
+    </table>
+    <div class="w3-note">
+        <h2>Note</h2>
+        <p>The Logical assignment operators are <a href="js_2020.asp">ES2020</a>.
+    </div>
+
+    <hr>
+    <h2>The = Operator</h2>
+    <p>The <b>Simple Assignment Operator</b> assigns a value to a variable.</p>
+    <div class="w3-example">
+        <h3>Simple Assignment Examples</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;
+        </div>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10 + y;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The += Operator</h2>
+    <p>The <b>Addition Assignment Operator</b> adds a value to a variable.</p>
+    <div class="w3-example">
+        <h3>Addition Assignment Examples</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>x += 5;
+        </div>
+        <div class="w3-code notranslate jsHigh">
+            let text = "Hello";
+            text += " World";
+        </div>
+    </div>
+
+    <hr>
+    <h2>The -= Operator</h2>
+    <p>The <b>Subtraction Assignment Operator</b> subtracts a value from a variable.</p>
+    <div class="w3-example">
+        <h3>Subtraction Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x -= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The *= Operator</h2>
+    <p>The <b>Multiplication Assignment Operator</b> multiplies a variable.</p>
+    <div class="w3-example">
+        <h3>Multiplication Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>x *= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The **= Operator</h2>
+    <p>The <b>Exponentiation Assignment Operator</b> raises a variable to the power of the operand.</p>
+    <div class="w3-example">
+        <h3>Exponentiation Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x **= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The /= Operator</h2>
+    <p>The <b>Division Assignment Operator</b> divides a variable.</p>
+    <div class="w3-example">
+        <h3>Division Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>x /= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The %= Operator</h2>
+    <p>The <b>Remainder Assignment Operator</b> assigns a remainder to a variable.</p>
+    <div class="w3-example">
+        <h3>Remainder Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x %= 5;
+        </div>
+    </div>
+
+    <hr>
+    <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+        <!-- MidContent -->
+        <!-- <p class="adtext">Advertisement</p> -->
+
+        <div id="adngin-mid_content-0"></div>
+
+    </div>
+    <hr>
+
+    <h2>The &lt;&lt;= Operator</h2>
+    <p>The <b>Left Shift Assignment Operator</b> left shifts a variable.</p>
+    <div class="w3-example">
+        <h3>Left Shift Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = -100;<br>
+            x &lt;&lt;= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The &gt;&gt;= Operator</h2>
+    <p>The <b>Right Shift Assignment Operator</b> right shifts a variable (signed).</p>
+    <div class="w3-example">
+        <h3>Right Shift Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = -100;<br>
+            x &gt;&gt;= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The &gt;&gt;&gt;= Operator</h2>
+    <p>The <b>Unsigned Right Shift Assignment Operator</b> right shifts a variable (unsigned).</p>
+    <div class="w3-example">
+        <h3>Unsigned Right Shift Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = -100;<br>
+            x &gt;&gt;&gt;= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The &amp;= Operator</h2>
+    <p>
+        The <b>Bitwise AND Assignment Operator</b> does a bitwise AND operation on two operands
+        and assigns the result to the the variable.
+    </p>
+    <div class="w3-example">
+        <h3>Bitwise AND Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x &amp;= 5;
+        </div>
+    </div>
+    <hr>
+
+    <h2>The |= Operator</h2>
+    <p>
+        The <b>Bitwise OR Assignment Operator</b> does a bitwise OR operation on two operands
+        and assigns the result to the variable.
+    </p>
+    <div class="w3-example">
+        <h3>Bitwise OR Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x |= 5;
+        </div>
+    </div>
+    <hr>
+
+    <h2>The ^= Operator</h2>
+    <p>
+        The <b>Bitwise XOR Assignment Operator</b> does a bitwise XOR operation on two operands
+        and assigns the result to the variable.
+    </p>
+    <div class="w3-example">
+        <h3>Bitwise XOR Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x ^= 5;
+        </div>
+    </div>
+
+    <hr>
+    <h2>The &amp;&amp;= Operator</h2>
+    <p>The <b>Logical AND assignment operator</b> is used between two values.</p>
+    <p>If the first value is true, the second value is assigned.</p>
+    <div class="w3-example">
+        <h3>Logical AND Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x &amp;&amp;= 5;
+        </div>
+    </div>
+    <div class="w3-note">
+        <p>The <code class="w3-codespan">&amp;&amp;=</code> operator is an <a href="js_2020.asp">ES2020 feature</a>.</p>
+    </div>
+
+    <hr>
+    <h2>The ||= Operator</h2>
+    <p>The <b>Logical OR assignment operator</b> is used between two values.</p>
+    <p>If the first value is false, the second value is assigned.</p>
+    <div class="w3-example">
+        <h3>Logical OR Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x = 10;<br>
+            x ||= 5;
+        </div>
+    </div>
+    <div class="w3-note">
+        <p>The <code class="w3-codespan">||=</code> operator is an <a href="js_2020.asp">ES2020 feature</a>.</p>
+    </div>
+
+    <hr>
+    <h2>The ??= Operator</h2>
+    <p>The <b>Nullish coalescing assignment operator</b> is used between two values.</p>
+    <p>If the first value is undefined or null, the second value is assigned.</p>
+    <div class="w3-example">
+        <h3>Nullish Coalescing Assignment Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            let x;<br>
+            x ??= 5;
+        </div>
+    </div>
+    <div class="w3-note">
+        <p>The <code class="w3-codespan">??=</code> operator is an <a href="#">ES2020 feature</a>.</p>
+    </div>
+
+    <hr>
+</div>
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Operators">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-Data-Types">Next &#10095;</a>
+</div>

@@ -1,0 +1,335 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.Js_ConstModel
+@{
+    ViewData["Title"] = "JavaScript Const";
+}
+
+<div class="container">
+    <h1>JavaScript <span class="color_h1">Const</span></h1>
+
+    <div class="w3-info">
+        <p>
+            The <code class="w3-codespan">const</code> keyword was introduced in
+            <a href="js_es6.asp">ES6 (2015)</a>
+        </p>
+        <p>Variables defined with <code class="w3-codespan">const</code> cannot be <b>Redeclared</b></p>
+        <p>Variables defined with <code class="w3-codespan">const</code> cannot be <b>Reassigned</b></p>
+        <p>Variables defined with <code class="w3-codespan">const</code> have <b>Block Scope</b></p>
+    </div>
+
+    <h2>Cannot be Reassigned</h2>
+    <p>A <code class="w3-codespan">const</code> variable cannot be reassigned:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const PI = 3.141592653589793;<br>
+            PI = 3.14;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // This will give an error<br>
+            PI = PI + 10;&nbsp;&nbsp; // This will also give an error
+        </div>
+    </div>
+
+    <hr>
+    <h2>Must be Assigned</h2>
+
+    <p>JavaScript <code class="w3-codespan">const</code> variables must be assigned a value when they are declared:</p>
+
+    <div class="w3-example">
+        <h3>Correct</h3>
+        <div class="w3-code notranslate jsHigh">
+            const PI = 3.14159265359;<br>
+        </div>
+    </div>
+    <div class="w3-example w3-pale-red">
+        <h3>Incorrect</h3>
+        <div class="w3-code notranslate jsHigh w3-border-red">
+            const PI;<br>
+            PI = 3.14159265359;<br>
+        </div>
+    </div>
+    <div class="w3-note">
+        <h2>When to use JavaScript const?</h2>
+        <p>
+            <b>
+                Always declare a variable with <code class="w3-codespan">const</code> when you know that
+                the value should not be changed.
+            </b>
+        </p>
+        <p>Use <code class="w3-codespan">const</code> when you declare:</p>
+        <ul>
+            <li>A new Array</li>
+            <li>A new Object</li>
+            <li>A new Function</li>
+            <li>A new RegExp</li>
+        </ul>
+    </div>
+
+    <hr>
+    <h2>Constant Objects and Arrays</h2>
+    <p>The keyword <code class="w3-codespan">const</code> is a little misleading.</p>
+    <p>It does not define a constant value. It defines a constant reference to a value.</p>
+    <p>Because of this you can NOT:</p>
+    <ul>
+        <li>Reassign a constant value</li>
+        <li>Reassign a constant array</li>
+        <li>Reassign a constant object</li>
+    </ul>
+    <ul>
+        <p>But you CAN:</p>
+        <li>Change the elements of constant array</li>
+        <li>Change the properties of constant object</li>
+    </ul>
+
+    <hr>
+    <h2>Constant Arrays</h2>
+    <p>You can change the elements of a constant array:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            // You can create a constant array:<br>
+            const cars = [&quot;Saab&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];<br><br>
+            // You can change an element:<br>
+            cars[0] = &quot;Toyota&quot;;<br><br>
+            // You can add an element:<br>
+            cars.push(&quot;Audi&quot;);<br>
+        </div>
+    </div>
+    <p>But you can NOT reassign the array:</p>
+
+    <div class="w3-example  w3-pale-red">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh w3-border-red">
+            const cars = [&quot;Saab&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];<br>
+            <br>
+            cars = [&quot;Toyota&quot;, &quot;Volvo&quot;, &quot;Audi&quot;];&nbsp;&nbsp;&nbsp; // ERROR
+        </div>
+    </div>
+
+    <hr>
+    <h2>Constant Objects</h2>
+    <p>You can change the properties of a constant object:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            // You can create a const object:<br>
+            const car = {type:"Fiat", model:"500", color:"white"};<br><br>
+            // You can change a property:<br>
+            car.color = "red";<br><br>
+            // You can add a property:<br>
+            car.owner = "Johnson";
+        </div>
+    </div>
+
+    <p>But you can NOT reassign the object:</p>
+
+    <div class="w3-example w3-pale-red">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh w3-border-red">
+            const car = {type:"Fiat", model:"500", color:"white"};<br>
+            <br>
+            car = {type:"Volvo", model:"EX60", color:"red"};&nbsp;&nbsp;&nbsp; //
+            ERROR
+        </div>
+    </div>
+    <hr>
+    <h2>Difference Between var, let and const</h2>
+    <table class="ws-table-all">
+        <tr></tr>
+        <tr><td></td><td>Scope</td><td>Redeclare</td><td>Reassign</td><td>Hoisted</td><td>Binds this</td></tr>
+        <tr><td>var</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>let</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+        <tr><td>const</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+    </table>
+    <h2>What is Good?</h2>
+    <p>
+        <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+        have <b>block scope</b>.
+    </p>
+    <p>
+        <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+        can not be <b>redeclared</b>.
+    </p>
+    <p>
+        <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+        must be <b>declared</b> before use.
+    </p>
+    <p>
+        <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+        does <b>not bind</b> to <code class="w3-codespan">this</code>.
+    </p>
+    <p>
+        <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+        are <b>not hoisted</b>.
+    </p>
+    <h2>What is Not Good?</h2>
+    <p><code class="w3-codespan">var</code> does not have to be declared.</p>
+    <p><code class="w3-codespan">var</code> is hoisted.</p>
+    <p><code class="w3-codespan">var</code> binds to this.</p>
+    <hr>
+    <h2>Browser Support</h2>
+    <p>
+        The <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> keywords are
+        not supported in Internet Explorer 11 or earlier.
+    </p>
+    <p>The following table defines the first browser versions with full support:</p>
+    <div class="w3-responsive">
+        <table class="browserref notranslate">
+            <tr>
+                <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+                <th style="width:20%;" class="bsEdge" title="Edge"></th>
+                <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+                <th style="width:20%;" class="bsSafari" title="Safari"></th>
+                <th style="width:20%;" class="bsOpera" title="Opera"></th>
+            </tr>
+            <tr>
+                <td>Chrome 49</td>
+                <td>Edge 12</td>
+                <td>Firefox 36</td>
+                <td>Safari 11</td>
+                <td>Opera 36</td>
+            </tr>
+            <tr>
+                <td>Mar, 2016</td>
+                <td>Jul, 2015</td>
+                <td>Jan, 2015</td>
+                <td>Sep, 2017</td>
+                <td>Mar, 2016</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Block Scope</h2>
+    <p>
+        Declaring a variable with <code class="w3-codespan">const</code> is similar to <code class="w3-codespan">let</code>
+        when it comes to <strong>Block Scope</strong>.
+    </p>
+    <p>The x declared in the block, in this example, is not the same as the x declared outside the block:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const x = 10;<br>
+            // Here x is 10<br>
+            <br>
+            { <br>
+            const x = 2;<br>
+            // Here x is 2<br>}<br>
+            <br>
+            // Here x is 10
+        </div>
+    </div>
+    <p>You can learn more about block scope in the chapter <a href="js_scope.asp">JavaScript Scope</a>.</p>
+    <hr>
+    <h2>Redeclaring</h2>
+    <p>
+        Redeclaring a JavaScript <code class="w3-codespan">var</code> variable is allowed
+        anywhere in a program:
+    </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+            var x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+            x = 4;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed
+        </div>
+    </div>
+    <p>
+        Redeclaring an existing <code class="w3-codespan">var</code> or <code class="w3-codespan">let</code>
+        variable to <code class="w3-codespan">const</code>, in the same scope, is not allowed:
+    </p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+            const x = 2;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            <br>
+            {<br>
+            let x = 2;&nbsp; &nbsp;&nbsp; // Allowed<br>
+            const x = 2;&nbsp;&nbsp;&nbsp;// Not allowed<br>}<br>
+            <br>
+            {<br>
+            const x = 2;&nbsp;&nbsp; // Allowed<br>
+            const x = 2;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            }
+
+        </div>
+    </div>
+
+    <p>Reassigning an existing <code class="w3-codespan">const</code> variable, in the same scope, is not allowed:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+            x = 2;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            var x = 2;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            let x = 2;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            <br>{<br>&nbsp;
+            const x = 2;&nbsp;&nbsp; // Allowed<br>
+            &nbsp; x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            // Not allowed<br>&nbsp; var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;
+            // Not allowed<br>&nbsp; let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;
+            // Not allowed<br>
+            &nbsp;
+            const x = 2;&nbsp;&nbsp;&nbsp;// Not allowed<br>
+            }<br>
+        </div>
+    </div>
+
+    <p>Redeclaring a variable with <code class="w3-codespan">const</code>, in another scope, or in another block, is allowed:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh">
+            const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Allowed<br><br>{<br>&nbsp;
+            const x = 3;&nbsp;&nbsp; // Allowed<br>
+            }<br>
+            <br>
+            {<br>
+            &nbsp;&nbsp;const x = 4;&nbsp;&nbsp;&nbsp;// Allowed<br>
+            }
+        </div>
+    </div>
+    <hr>
+
+    <h2>Hoisting</h2>
+    <p>
+        Variables defined with <code class="w3-codespan">var</code> are <strong>hoisted</strong> to the top
+        and can be initialized at any time.
+    </p>
+    <p>Meaning: You can use the variable before it is declared:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>This is OK:</p>
+        <div class="w3-code notranslate jsHigh">
+            carName = &quot;Volvo&quot;;<br>
+            var carName;
+        </div>
+    </div>
+    <p>If you want to learn more about hoisting, study the chapter <a href="js_hoisting.asp">JavaScript Hoisting</a>.
+
+    <p>
+        Variables defined with <code class="w3-codespan">const</code> are also hoisted to the top,
+        but not initialized.
+    </p>
+    <p>
+        Meaning: Using a <code class="w3-codespan">const</code> variable before it is declared will result in a
+        <code class="w3-codespan">ReferenceError</code>:
+    </p>
+
+    <div class="w3-example w3-pale-red">
+        <h3>Example</h3>
+        <div class="w3-code notranslate jsHigh w3-border-red">
+            alert (carName);<br>
+            const carName = &quot;Volvo&quot;;
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Let">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-Operators">Next &#10095;</a>
+</div>

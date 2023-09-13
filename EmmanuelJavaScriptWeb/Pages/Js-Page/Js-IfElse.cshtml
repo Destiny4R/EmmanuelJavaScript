@@ -1,0 +1,202 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Js_Page.Js_IfElseModel
+@{
+    ViewData["Title"] = "JavaScript if, else, and else if";
+}
+<div class="container">
+    <h1>JavaScript if, else, and else if</h1>
+    <hr>
+    <p class="intro">Conditional statements are used to perform different actions based on different conditions.</p>
+    <hr>
+
+    <h2>Conditional Statements</h2>
+    <p>Very often when you write code, you want to perform different actions for different decisions.</p>
+    <p>You can use conditional statements in your code to do this.</p>
+    <p>In JavaScript we have the following conditional statements:</p>
+    <ul>
+        <li>Use <code class="w3-codespan">if</code> to specify a block of code to be executed, if a specified condition is true</li>
+        <li>
+            Use <code class="w3-codespan">else</code> to specify a block of code to be executed, if the same condition is
+            false
+        </li>
+        <li>Use <code class="w3-codespan">else if</code> to specify a new condition to test, if the first condition is false</li>
+        <li>Use <code class="w3-codespan">switch</code> to specify many alternative blocks of code to be executed</li>
+    </ul>
+    <div class="w3-panel w3-note">
+        <p>The <code class="w3-codespan">switch</code> statement is described in the next chapter.</p>
+    </div>
+    <hr>
+
+    <h2>The if Statement</h2>
+    <p>
+        Use the <code class="w3-codespan">if</code> statement to specify a block of JavaScript code to
+        be executed if a condition is true.
+    </p>
+
+    <h3>Syntax</h3>
+    <div class="w3-code w3-border notranslate jsHigh">
+        <div>
+            if (<i>condition</i>) {<br>
+            &nbsp;&nbsp;//<em>
+                &nbsp; block of code to be executed if the condition is true<br>
+            </em>}
+        </div>
+    </div>
+
+    <div class="w3-panel w3-note">
+        <p>Note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.</p>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>
+            Make a &quot;Good day&quot; greeting if the hour is less than
+            18:00:
+        </p>
+        <div class="w3-code notranslate jsHigh">
+            if (hour &lt; 18) {<br>
+            &nbsp; greeting = &quot;Good day&quot;;<br>
+            }
+        </div>
+        <p>The result of greeting will be:</p>
+        <div class="w3-white w3-padding notranslate">
+            <code>
+                <script>
+                    d = new Date();
+                    var time = d.getHours();
+                    if (time < 20) {
+                        document.write("Good day");
+                    }
+                </script>
+            </code>
+        </div>
+    </div>
+    <hr>
+    <div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+        <!-- MidContent -->
+        <!-- <p class="adtext">Advertisement</p> -->
+
+        <div id="adngin-mid_content-0"></div>
+
+    </div>
+    <hr>
+
+    <h2>The else Statement</h2>
+    <p>
+        Use the <code class="w3-codespan">else</code> statement to specify a block of code to be
+        executed if the condition is
+        false.
+    </p>
+    <div class="w3-code w3-border notranslate jsHigh">
+        <div>
+            if (<i>condition</i>) {<br>
+            &nbsp;&nbsp;//<em>
+                &nbsp; block of code to be executed if the condition is true<br>
+            </em>}
+            else {
+            <br>
+            &nbsp;&nbsp;//<em>
+                &nbsp; block of code to be executed if the condition is false<br>
+            </em>}
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>
+            If the hour is less than 18, create a &quot;Good day&quot;
+            greeting, otherwise &quot;Good evening&quot;:
+        </p>
+        <div class="w3-code notranslate jsHigh">
+            if (hour &lt; 18) {<br>
+            &nbsp;&nbsp;greeting = &quot;Good day&quot;;<br>
+            }
+            else {<br>
+            &nbsp; greeting = &quot;Good evening&quot;;<br>
+            }
+        </div>
+        <p>The result of greeting will be:</p>
+        <div class="w3-white w3-padding notranslate">
+            <code>
+                <script>
+                    d = new Date();
+                    var time = d.getHours();
+                    if (time < 20) {
+                        document.write("Good day");
+                    }
+                    else {
+                        document.write("Good evening");
+                    }
+                </script>
+            </code>
+        </div>
+    </div>
+    <hr>
+
+    <h2>The else if&nbsp;Statement</h2>
+    <p>Use the <code class="w3-codespan">else if</code> statement to specify a new condition if the first condition is false.</p>
+
+    <h3>Syntax</h3>
+    <div class="w3-code w3-border notranslate jsHigh">
+        <div>
+
+            if (<i>condition1</i>) {<br>
+            &nbsp;&nbsp;//<em>
+                &nbsp; block of code to be executed if condition1 is true<br>
+            </em>}
+            else if (<i>condition2</i>) {<br>
+            &nbsp;&nbsp;//<em>&nbsp; block of code to be executed if the condition1 is false and condition2 is true</em><br>
+            } else {<br>
+            &nbsp;&nbsp;//<em>
+                &nbsp; block of code to be executed if the condition1 is false and condition2 is false<br>
+            </em>}
+        </div>
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>
+            If time is less than 10:00, create a &quot;Good
+            morning&quot;
+            greeting, if not, but time is less than 20:00, create a &quot;Good day&quot; greeting,
+            otherwise a &quot;Good evening&quot;:
+        </p>
+        <div class="w3-code notranslate jsHigh">
+            if (time &lt; 10) {<br>
+            &nbsp; greeting = &quot;Good morning&quot;;<br>
+            }
+            else if (time &lt; 20)&nbsp;{<br>
+            &nbsp; greeting = &quot;Good day&quot;;<br>
+            }
+            else&nbsp;{<br>
+            &nbsp; greeting = &quot;Good evening&quot;;<br>
+            }
+        </div>
+        <p>The result of greeting will be:</p>
+        <div class="w3-white w3-padding notranslate">
+            <code>
+
+                <script>
+                    d = new Date();
+                    time = d.getHours();
+                    if (time < 10) {
+                        document.write("Good morning");
+                    }
+                    else if (time < 20) {
+                        document.write("Good day");
+                    }
+                    else {
+                        document.write("Good evening");
+                    }
+                </script>
+            </code>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<div class="d-flex justify-content-between mt-3">
+    <a class="btn btn-sm btn-success" asp-page="JS-Comparison">&#10094; Previous</a>
+    <a class="btn btn-sm btn-success" asp-page="Js-Switch">Next &#10095;</a>
+</div>

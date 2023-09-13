@@ -1,0 +1,53 @@
+﻿@page
+@model EmmanuelJavaScriptWeb.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login Page";
+}
+<form method="post" class="is-valid">
+    <div class=" row mt-5">
+        <div class="mt-2 col-8 offset-3 col-lg-4 col-offset-2 col-md-6 col-md-offset-3 card">
+            <div class="card-body">
+                <h3 class="text-center">
+                    <strong>Login Page</strong>
+                </h3>
+                <div class="mt-5 row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label"><strong>Email</strong></label>
+                    <div class="col-sm-8">
+                        <input asp-for="model.Email" class="form-control form-control-sm" />
+                        <span asp-validation-for="model.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 mt-3 row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label"><strong>Password</strong></label>
+                    <div class="col-sm-8">
+                        <input asp-for="model.Password" class="form-control form-control-sm" />
+                        <span asp-validation-for="model.Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 mt-3 row">
+                    <div class="col-sm-4 "></div>
+                    <div class="checkbox col-sm-8">
+                        <label asp-for="model.RememberMe">
+                            <input asp-for="model.RememberMe" />
+                            @Html.DisplayNameFor(m => m.model.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger mt-3"></div>
+                <div class="mb-3 mt-3 row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-primary">
+                            <strong><i class="fa fa-sign-in"></i> &nbsp; Login</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
